@@ -8,6 +8,7 @@ public class GameStart : MonoBehaviour
     void Start()
     {
         GameState.score = 0;
+        GameState.browniePoints = 0;
     }
 
     // Update is called once per frame
