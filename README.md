@@ -1,7 +1,7 @@
 # Null_Pointer_Nukem_2D
 Assignment1 for 2241 CS
 
-Zelda style or Mario style?
+Zelda style\n
 have platforms/walls that can only be walked through from one direction?
 If player walked to edge takes player to opposite side
 Zelda type game
