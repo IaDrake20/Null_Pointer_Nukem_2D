@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour
         
         //movement enabled or disabled by specific enemy type
         if(toggleMovement){
-                if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 rb.velocity = new Vector3(0f, speed, 0f);
             }
