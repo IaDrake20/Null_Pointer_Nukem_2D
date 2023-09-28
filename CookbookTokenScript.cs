@@ -16,7 +16,7 @@ public class CookbookTokenScript : MonoBehaviour
         {
             float waitTime = UnityEngine.Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(waitTime);
-            Vector3 position = new Vector3(9.5f, 0.0f, 0.0f);
+            Vector3 position = new Vector3(Random.Range(-31f, 31f), Random.Range(-4f, 4f), 0.0f);
             Instantiate(cookbookTokenPrefab, position, Quaternion.identity);
         }
     }

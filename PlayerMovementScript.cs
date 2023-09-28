@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        GameState.isImmune = false;
     }
 
     // Update is called once per frame
@@ -48,7 +48,7 @@ public class PlayerScript : MonoBehaviour
 
         //bug affect
         //TODO: implement timer
-        if (bugAffect)
+        if (bugAffect && GameState.isImmune == false)
         {
             GameState.score -= 1;
         }

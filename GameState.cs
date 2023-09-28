@@ -7,4 +7,5 @@ public class GameState : ScriptableObject
 {
     public static int score;
     public static int browniePoints;
+    public static bool isImmune;
 }

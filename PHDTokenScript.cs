@@ -15,7 +15,7 @@ public class PHDTokenScript : MonoBehaviour
         {
             float waitTime = UnityEngine.Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(waitTime);
-            Vector3 position = new Vector3(2.5f, -6.5f, 0.0f);
+            Vector3 position = new Vector3(Random.Range(-31f, 31f), Random.Range(-4f, 4f), 0.0f);
             Instantiate(phdTokenPrefab, position, Quaternion.identity);
         }
     }
