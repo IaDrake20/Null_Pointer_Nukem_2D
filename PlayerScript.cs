@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
         //bool hasCollided = false;
     bool bugAffect = false;
     bool toggleMovement = true;
+    public float speed = 50f;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float speed = 20f;
+        
         float dirX = Input.GetAxisRaw("Horizontal");
         //Debug.Log(dirX);
         float dirY = Input.GetAxisRaw("Vertical");
@@ -33,7 +34,7 @@ public class PlayerScript : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) 
             {
-                rb.velocity = new Vector3(0f, -10f, 0f);
+                rb.velocity = new Vector3(0f, -speed, 0f);
             }
             if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) 
             {

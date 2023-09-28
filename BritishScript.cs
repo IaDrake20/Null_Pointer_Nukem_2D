@@ -45,9 +45,11 @@ public class BrishSript : MonoBehaviour
             //gameLogicScript.NullPointerAction();
             if (GameState.browniePoints >= 10)
             {
+                GameState.recievedPowerup = true;
                 GameState.isImmune = true;
+                GameState.browniePoints = 0;
+
             }
-            GameState.browniePoints = 0;
             UnityEngine.Debug.Log("Brownie Points: " + GameState.browniePoints);
             Destroy(gameObject);
         }

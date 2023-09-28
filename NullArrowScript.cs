@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class NullArrowScript : MonoBehaviour
 {
+    Rigidbody2D rb;
+
+    public float NullArrowTokenSpeed;
+
     [SerializeField]
     public GameObject nullArrowTokenPrefab;
     public float timeOnScreen;
 
-    IEnumerator SpawnTestTokenUnifDist(float minTime, float maxTime)
-    {
-        while (true)
-        {
-            float waitTime = UnityEngine.Random.Range(minTime, maxTime);
-            yield return new WaitForSeconds(waitTime);
-            Vector3 position = new Vector3(-16.5f, 3.5f, 0.0f);
-            Instantiate(nullArrowTokenPrefab, position, Quaternion.identity);
-        }
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnTestTokenUnifDist(4.0f, 8.0f));
-        timeOnScreen = 0.0f;
+        //destory after 20 seconds
+        Destroy(gameObject, 20f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        float dirX, dirY;
+        dirX = 0f; dirY = 0f;
+        //rb.velocity = new Vector2(dirX, dirY);
+        NullArrowTokenSpeed = 25f;
+
+        //hardcoded direction and speed for now
+        //rb.velocity = new Vector3(NullArrowTokenSpeed, 0, 0);
+
         timeOnScreen += 0.1f;
         if (timeOnScreen > 387f)
         {

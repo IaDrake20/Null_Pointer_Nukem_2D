@@ -1,29 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class CookbookTokenScript : MonoBehaviour
+public class BugSwarmScript : MonoBehaviour
 {
     [SerializeField]
-    public GameObject cookbookTokenPrefab;
+    public GameObject BugSwarmPrefab;
+
+    public bool toggleScoreDrain = false;
 
     public float timeOnScreen;
-
-    IEnumerator SpawnBookToken(float minTime, float maxTime)
+    IEnumerator SpawnTestTokenUnifDist(float minTime, float maxTime)
     {
         while (true)
         {
             float waitTime = UnityEngine.Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(waitTime);
-            Vector3 position = new Vector3(9.5f, 0.0f, 0.0f);
-            Instantiate(cookbookTokenPrefab, position, Quaternion.identity);
+            Vector3 position = new Vector3(-4f, -2f, 0.0f);
+            Instantiate(BugSwarmPrefab, position, Quaternion.identity);
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnBookToken(3.0f, 7.0f));
+        StartCoroutine(SpawnTestTokenUnifDist(3.0f, 7.0f));
         timeOnScreen = 0.0f;
     }
 
@@ -31,20 +31,19 @@ public class CookbookTokenScript : MonoBehaviour
     void Update()
     {
         timeOnScreen += 0.1f;
-        if(timeOnScreen > 500f)
+        if (timeOnScreen < 125f)
         {
-            DestroyImmediate(cookbookTokenPrefab, true);
+            Destroy(gameObject);
             timeOnScreen = 0.0f;
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //gameLogicScript.NullPointerAction();
-            GameState.browniePoints++;
+            
+            toggleScoreDrain = true;
             Destroy(gameObject);
         }
     }
