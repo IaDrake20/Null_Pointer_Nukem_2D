@@ -15,7 +15,7 @@ public class BrownieTokenScript : MonoBehaviour
         {
             float waitTime = UnityEngine.Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(waitTime);
-            Vector3 position = new Vector3(Random.Range(-31f, 31f), Random.Range(-4f, 4f), 0.0f);
+            Vector3 position = new Vector3(-16.5f, 3.5f, 0.0f);
             Instantiate(brownieTokenPrefab, position, Quaternion.identity);
         }
     }
@@ -41,7 +41,6 @@ public class BrownieTokenScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //gameLogicScript.NullPointerAction();
             GameState.browniePoints++;
             UnityEngine.Debug.Log("Brownie Points: " + GameState.browniePoints);
             Destroy(gameObject);

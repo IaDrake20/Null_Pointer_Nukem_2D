@@ -1,28 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class PHDTokenScript : MonoBehaviour
+public class NullArrowScript : MonoBehaviour
 {
     [SerializeField]
-    public GameObject phdTokenPrefab;
-
+    public GameObject nullArrowTokenPrefab;
     public float timeOnScreen;
+
     IEnumerator SpawnTestTokenUnifDist(float minTime, float maxTime)
     {
         while (true)
         {
             float waitTime = UnityEngine.Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(waitTime);
-            Vector3 position = new Vector3(2.5f, -6.5f, 0.0f);
-            Instantiate(phdTokenPrefab, position, Quaternion.identity);
+            Vector3 position = new Vector3(-16.5f, 3.5f, 0.0f);
+            Instantiate(nullArrowTokenPrefab, position, Quaternion.identity);
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnTestTokenUnifDist(3.0f, 7.0f));
+        StartCoroutine(SpawnTestTokenUnifDist(4.0f, 8.0f));
         timeOnScreen = 0.0f;
     }
 
@@ -30,9 +29,9 @@ public class PHDTokenScript : MonoBehaviour
     void Update()
     {
         timeOnScreen += 0.1f;
-        if(timeOnScreen > 350)
+        if (timeOnScreen > 387f)
         {
-            DestroyImmediate(phdTokenPrefab, true);
+            DestroyImmediate(nullArrowTokenPrefab, true);
             timeOnScreen = 0.0f;
         }
     }
@@ -41,8 +40,13 @@ public class PHDTokenScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            GameState.score += 25;
-            UnityEngine.Debug.Log("PHD...Points Increased " + GameState.score);
+            if((GameState.score / 2) > (GameState.score - 10))
+            {
+                GameState.score /= 2;
+            } else
+            {
+                GameState.score -= 10;
+            }
             Destroy(gameObject);
         }
     }
