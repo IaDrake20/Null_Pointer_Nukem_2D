@@ -23,7 +23,6 @@ public class NullArrowSpawnerScript : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnTestTokenUnifDist(8.0f, 16.0f));
-        //timeOnScreen = 0.0f;
     }
 
     // Update is called once per frame

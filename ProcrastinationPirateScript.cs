@@ -12,22 +12,10 @@ public class ProcrastinationPirateScript : MonoBehaviour
     public GameObject procrastinationPiratePrefab;
     public float timeOnScreen;
 
-    IEnumerator SpawnTestTokenUnifDist(float minTime, float maxTime)
-    {
-        while (true)
-        {
-            float waitTime = UnityEngine.Random.Range(minTime, maxTime);
-            yield return new WaitForSeconds(waitTime);
-            Vector3 position = new Vector3(-16.5f, 3.5f, 0.0f);
-            var cpy = Instantiate(procrastinationPiratePrefab, position, Quaternion.identity);
-            Destroy(cpy, 10);
-        }
-    }
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnTestTokenUnifDist(4.0f, 8.0f));
-        timeOnScreen = 0.0f;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -46,6 +34,7 @@ public class ProcrastinationPirateScript : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Debug.Log("touched pirate ");
+            GameState.toggleMovement = true;
             Destroy(gameObject);
         }
     }

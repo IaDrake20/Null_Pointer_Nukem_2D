@@ -5,25 +5,13 @@ using UnityEngine;
 public class BrishSript : MonoBehaviour
 {
     [SerializeField]
-    public GameObject briIshProfessor;
+    public GameObject britishProfessor;
 
-    public float timeOnScreen;
-
-    IEnumerator SpawnBrish(float minTime, float maxTime)
-    {
-        while (true)
-        {
-            float waitTime = UnityEngine.Random.Range(minTime, maxTime);
-            yield return new WaitForSeconds(waitTime);
-            Vector3 position = new Vector3(Random.Range(-31f, 31f), Random.Range(-4f, 4f), 0.0f);
-            Instantiate(briIshProfessor, position, Quaternion.identity);
-        }
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnBrish(5.0f, 9.0f));
-        timeOnScreen = 0.0f;
+        
     }
 
     // Update is called once per frame

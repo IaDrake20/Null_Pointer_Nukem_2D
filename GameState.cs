@@ -16,4 +16,8 @@ public class GameState : ScriptableObject
 
     public static int browniePoints;
     public static bool recievedPowerup;
+
+    [SerializeField]
+    public static bool toggleMovement;
+
 }

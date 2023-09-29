@@ -7,9 +7,6 @@ public class OleSpawnerScript : MonoBehaviour
 {
     [SerializeField]
     public GameObject OleGermanTokenPrefab;
-    public float timeOnScreen;
-
-    //private var cpy;
 
     //spawns are y:-9 to 8, -19 to 18
 
@@ -29,7 +26,6 @@ public class OleSpawnerScript : MonoBehaviour
     void Start()
     {
         StartCoroutine(SpawnTestTokenUnifDist(8.0f, 16.0f));
-        timeOnScreen = 0.0f;
     }
 
     // Update is called once per frame
