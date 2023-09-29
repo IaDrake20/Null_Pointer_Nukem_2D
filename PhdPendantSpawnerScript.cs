@@ -7,7 +7,7 @@ public class PhdPendantSpawnerScript : MonoBehaviour
     [SerializeField]
     public GameObject PhdPendantPrefab;
 
-    //spawns are y:-9 to 8, -19 to 18
+    //spawns are y:-7 to 7, -19 to 20
 
     IEnumerator SpawnTestTokenUnifDist(float minTime, float maxTime)
     {

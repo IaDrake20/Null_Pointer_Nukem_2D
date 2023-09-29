@@ -23,6 +23,7 @@ public class CookbookSpawnScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         StartCoroutine(SpawnTestTokenUnifDist(8.0f, 16.0f));
 
     }

@@ -16,8 +16,7 @@ public class NullArrowScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //destory after 20 seconds
-        Destroy(gameObject, 20f);
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -29,7 +28,7 @@ public class NullArrowScript : MonoBehaviour
         NullArrowTokenSpeed = 25f;
 
         //hardcoded direction and speed for now
-        //rb.velocity = new Vector3(NullArrowTokenSpeed, 0, 0);
+        rb.velocity = new Vector3(NullArrowTokenSpeed, 0, 0);
 
         timeOnScreen += 0.1f;
         if (timeOnScreen > 387f)

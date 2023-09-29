@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NullArrowSpawnerScript : MonoBehaviour
+public class ProcrastinationPirateSpawnerScript : MonoBehaviour
 {
+
     [SerializeField]
-    public GameObject nullArrowTokenPrefab;
-    // Start is called before the first frame update
+    public GameObject procrastinationPiratePrefab;
+
     public Transform player;
 
     [SerializeField]
     public float minDistance;
 
     float locX;
-    float locY;// = UnityEngine.Random.Range(-7f, 7f);
+    float locY;
 
     //spawns are y:-9 to 8, -19 to 18
 
@@ -34,7 +35,7 @@ public class NullArrowSpawnerScript : MonoBehaviour
             if (distanceToPlayer > minDistance)
             {
                 // Instantiate the object at the spawn position.
-                var cpy = Instantiate(nullArrowTokenPrefab, position, Quaternion.identity);
+                var cpy = Instantiate(procrastinationPiratePrefab, position, Quaternion.identity);
                 Destroy(cpy, 10);
             }
         }
@@ -51,8 +52,5 @@ public class NullArrowSpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
-
-
 }
