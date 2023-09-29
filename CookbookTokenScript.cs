@@ -43,8 +43,7 @@ public class CookbookTokenScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //gameLogicScript.NullPointerAction();
-            GameState.browniePoints++;
+            GameState.score++;
             Destroy(gameObject);
         }
     }

@@ -12,17 +12,17 @@ public class NullArrowSpawnerScript : MonoBehaviour
     {
         while (true)
         {
-            GameState.TEXT_score.text = "Score: " + GameState.score.ToString();
             float waitTime = UnityEngine.Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(waitTime);
-            Vector3 position = new Vector3(UnityEngine.Random.Range(-17f, 18f), UnityEngine.Random.Range(-6,6), 0);//-16.5f, 3.5f, 0.0f);
-            Instantiate(nullArrowTokenPrefab, position, Quaternion.identity);
+            Vector3 position = new Vector3(UnityEngine.Random.Range(-19f, 20f), UnityEngine.Random.Range(-7f, 7f), 0.0f);
+            var cpy = Instantiate(nullArrowTokenPrefab, position, Quaternion.identity);
+            Destroy(cpy, 10);
         }
     }
 
     void Start()
     {
-        StartCoroutine(SpawnTestTokenUnifDist(4.0f, 8.0f));
+        StartCoroutine(SpawnTestTokenUnifDist(8.0f, 16.0f));
         //timeOnScreen = 0.0f;
     }
 
@@ -31,4 +31,6 @@ public class NullArrowSpawnerScript : MonoBehaviour
     {
         
     }
+
+
 }

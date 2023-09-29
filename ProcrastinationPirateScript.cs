@@ -19,7 +19,8 @@ public class ProcrastinationPirateScript : MonoBehaviour
             float waitTime = UnityEngine.Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(waitTime);
             Vector3 position = new Vector3(-16.5f, 3.5f, 0.0f);
-            Instantiate(procrastinationPiratePrefab, position, Quaternion.identity);
+            var cpy = Instantiate(procrastinationPiratePrefab, position, Quaternion.identity);
+            Destroy(cpy, 10);
         }
     }
     // Start is called before the first frame update
@@ -38,12 +39,6 @@ public class ProcrastinationPirateScript : MonoBehaviour
         //hardcoded direction and speed for now
         //rb.velocity = new Vector3(pPTokenSpeed, 0, 0);
 
-        timeOnScreen += 0.1f;
-        if (timeOnScreen > 387f)
-        {
-            DestroyImmediate(procrastinationPiratePrefab, true);
-            timeOnScreen = 0.0f;
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)

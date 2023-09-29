@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GermanScript : MonoBehaviour
 {
+    private GameObject[] enemies;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,20 @@ public class GermanScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
+            {
+                Debug.Log("Rmving "+enemy);
+                Destroy(enemy);
+            }
+        }
+        GameState.browniePoints = 0;
+        Destroy(other.gameObject);
     }
 }

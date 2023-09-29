@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
-public class BrownieSpawnerScript : MonoBehaviour
+public class OleSpawnerScript : MonoBehaviour
 {
     [SerializeField]
-    public GameObject brownieTokenPrefab;
+    public GameObject OleGermanTokenPrefab;
     public float timeOnScreen;
+
+    //private var cpy;
 
     //spawns are y:-9 to 8, -19 to 18
 
@@ -17,16 +20,16 @@ public class BrownieSpawnerScript : MonoBehaviour
             float waitTime = UnityEngine.Random.Range(minTime, maxTime);
             yield return new WaitForSeconds(waitTime);
             Vector3 position = new Vector3(UnityEngine.Random.Range(-19f, 20f), UnityEngine.Random.Range(-7f, 7f), 0.0f);
-            var cpy = Instantiate(brownieTokenPrefab, position, Quaternion.identity);
+            var cpy = Instantiate(OleGermanTokenPrefab, position, Quaternion.identity);
             Destroy(cpy, 10);
+
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnTestTokenUnifDist(4.0f, 8.0f));
+        StartCoroutine(SpawnTestTokenUnifDist(8.0f, 16.0f));
         timeOnScreen = 0.0f;
-
     }
 
     // Update is called once per frame

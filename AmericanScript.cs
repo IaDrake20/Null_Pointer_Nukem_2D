@@ -55,7 +55,6 @@ public class AmericanScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //gameLogicScript.NullPointerAction();
             if (GameState.browniePoints >= 10)
             {
                 GameState.recievedPowerup = true;

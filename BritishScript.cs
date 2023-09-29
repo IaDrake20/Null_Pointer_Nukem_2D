@@ -29,13 +29,7 @@ public class BrishSript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeOnScreen += 0.1f;
-        if (timeOnScreen > 500f)
-        {
-            DestroyImmediate(briIshProfessor, true);
-            timeOnScreen = 0.0f;
-        }
-
+       
     }
 
     private void OnCollisionEnter2D(Collision2D other)
