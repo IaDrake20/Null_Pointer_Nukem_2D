@@ -24,7 +24,7 @@ public class GermanScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && GameState.browniePoints >= 10)
         {
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemies)
@@ -34,6 +34,6 @@ public class GermanScript : MonoBehaviour
             }
         }
         GameState.browniePoints = 0;
-        Destroy(other.gameObject);
+        Destroy(this.gameObject);
     }
 }

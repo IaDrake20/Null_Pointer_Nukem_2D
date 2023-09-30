@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NullArrowSpawnerScript : MonoBehaviour
+/*
+ * TODO: make sure spawn distributions are correct
+ */
+
+
+public class BritishSpawnerScript : MonoBehaviour
 {
     [SerializeField]
-    public GameObject nullArrowTokenPrefab;
-    // Start is called before the first frame update
+    public GameObject BritishTokenPrefab;
     public Transform player;
 
     [SerializeField]
@@ -34,8 +38,8 @@ public class NullArrowSpawnerScript : MonoBehaviour
             if (distanceToPlayer > minDistance)
             {
                 // Instantiate the object at the spawn position.
-                var cpy = Instantiate(nullArrowTokenPrefab, position, Quaternion.identity);
-                Destroy(cpy, 10);
+                var cpy = Instantiate(BritishTokenPrefab, position, Quaternion.identity);
+                Destroy(cpy, 8);
             }
         }
     }
@@ -43,7 +47,7 @@ public class NullArrowSpawnerScript : MonoBehaviour
     void Start()
     {
         locX = UnityEngine.Random.Range(-19f, 20f);
-        locY = UnityEngine.Random.Range(-7f, 7f);
+        locY = UnityEngine.Random.Range(-6f, 7f);
         StartCoroutine(SpawnTestTokenUnifDist(8.0f, 16.0f));
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
@@ -53,6 +57,4 @@ public class NullArrowSpawnerScript : MonoBehaviour
     {
         
     }
-
-
 }

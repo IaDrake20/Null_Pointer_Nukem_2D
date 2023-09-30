@@ -27,19 +27,19 @@ public class PlayerScript : MonoBehaviour
         
         //movement enabled or disabled by specific enemy type
         if(GameState.toggleMovement){
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 rb.velocity = new Vector3(0f, speed, 0f);
             }
-            if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) 
+            if(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) 
             {
                 rb.velocity = new Vector3(0f, -speed, 0f);
             }
-            if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) 
+            if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) 
             {
                 rb.velocity = new Vector3(speed, 0f, 0f);
             }
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) 
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
             {
                 rb.velocity = new Vector3(-speed, 0f, 0f);
             }

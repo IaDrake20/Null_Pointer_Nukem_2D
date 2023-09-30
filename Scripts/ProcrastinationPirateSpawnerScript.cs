@@ -44,7 +44,7 @@ public class ProcrastinationPirateSpawnerScript : MonoBehaviour
     void Start()
     {
         locX = UnityEngine.Random.Range(-19f, 20f);
-        locY = UnityEngine.Random.Range(-7f, 7f);
+        locY = UnityEngine.Random.Range(-6f, 7f);
         StartCoroutine(SpawnTestTokenUnifDist(8.0f, 16.0f));
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }

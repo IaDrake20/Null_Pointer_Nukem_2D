@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class NullArrowScript : MonoBehaviour
 {
     Rigidbody2D rb;
 
+    [SerializeField]
     public float NullArrowTokenSpeed;
 
     [SerializeField]
@@ -22,24 +24,26 @@ public class NullArrowScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dirX, dirY;
-        dirX = 0f; dirY = 0f;
+
         //rb.velocity = new Vector2(dirX, dirY);
-        NullArrowTokenSpeed = 25f;
+        NullArrowTokenSpeed = 1f;
 
         //hardcoded direction and speed for now
         rb.velocity = new Vector3(NullArrowTokenSpeed, 0, 0);
+       
 
-        timeOnScreen += 0.1f;
-        if (timeOnScreen > 387f)
-        {
-            DestroyImmediate(nullArrowTokenPrefab, true);
-            timeOnScreen = 0.0f;
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag("R_Wall")){
+            rb.velocity = new Vector3(-NullArrowTokenSpeed, 0f, 0f);
+        } else if (other.gameObject.CompareTag("L_Wall"))
+        {
+            rb.velocity = new Vector3(NullArrowTokenSpeed, 0f, 0f);
+        }
+
+
         if (other.gameObject.CompareTag("Player"))
         {
             if((GameState.score / 2) > (GameState.score - 10))
