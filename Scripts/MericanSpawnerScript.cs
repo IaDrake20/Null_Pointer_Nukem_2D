@@ -43,7 +43,7 @@ public class MericanSpawnerScript : MonoBehaviour
             {
                 // Instantiate the object at the spawn position.
                 var cpy = Instantiate(MERICANTokenPrefab, position, Quaternion.identity);
-                Destroy(cpy, 5);
+                Destroy(cpy, 4.5f);
             }
         }
     }
